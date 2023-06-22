@@ -91,7 +91,7 @@ const App = () => {
           .replace(/(\s?\г\.?)/, ""),
         status: "active",
         responsibleExecutive,
-        expirationDate: expirationDate.toDateString(),
+        expirationDate: new Date(expirationDate).toLocaleDateString(),
         updateDate: new Intl.DateTimeFormat("ru", {
           year: "2-digit",
           month: "numeric",
