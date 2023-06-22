@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.wrapper {
+  padding: 2rem;
+  margin: 2rem auto;
+  width: 1200px;
+  &__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    font-family: "Quicksand", sans-serif;
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo_checkbox {
+  margin-right: 30px;
+  width: 15px;
+  height: 15px;
+}
+
+.done {
+  text-decoration: line-through;
+  color: grey;
+  background: rgb(131, 222, 131);
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid blue;
+  border-color: blue transparent blue transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.button__add::placeholder {
+  color: grey;
+}
+
+.form {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 10px;
+  &__input {
+    width: 500px;
+    border: none;
+    border-bottom: 1px solid grey;
+    outline: none !important;
+  }
+  &__button {
+    background-image: linear-gradient(#0dccea, #0d70ea);
+    border: 0;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 5px 15px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: Montserrat, sans-serif;
+    font-size: 0.9em;
+    margin: 5px;
+    padding: 10px 15px;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+}
+
+.list__header {
+  background: #cecece;
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 135px 0px 20px;
+  &_item {
+    width: 100px;
+    text-align: center;
+  }
+  &_num {
+    width: 65px;
+  }
+}
+
+.todo__item_description {
+  display: flex;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  &_item {
+    width: 100px;
+    text-align: center;
+  }
+  &_num {
+    display: flex;
+    align-items: center;
+    width: 65px;
+  }
+  &_content {
+    width: 1000px;
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    align-items: center;
+    &_delete {
+      background: grey;
+      border-radius: 30%;
+      color: #fff;
+      border: none;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  gap: 5px;
+  width: 250px;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  border-radius: 5px;
+}
+.item {
+  display: flex;
+  align-items: center;
+  font-family: "Quicksand", sans-serif;
+  background-image: linear-gradient(#0dccea, #0d70ea);
+  border: 0;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 5px 15px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-size: 0.9em;
+  margin: 5px;
+  padding: 10px 15px;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.calendar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  &__date {
+    padding-bottom: 20px;
+  }
+}
+
+.calendar__active {
+  opacity: 1;
+  pointer-events: all;
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  
+}
