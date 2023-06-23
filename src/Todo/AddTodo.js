@@ -86,7 +86,7 @@ const AddTodo = ({ onCreate }) => {
       inputDescription.value().trim() &&
       inputPriority.value().trim() &&
       inputResponsible.value().trim() &&
-      inputExpirationDate.value().toString().trim()
+      inputExpirationDate.value()
     ) {
       onCreate(
         inputHeader.value(),
@@ -114,16 +114,16 @@ const AddTodo = ({ onCreate }) => {
         setActive={setModalActive}
       >
         <form className="form" onSubmit={submitHandler}>
-          Add title
+          Add task
           <input
             className="form__input"
-            placeholder="What needs to be done?"
+            placeholder="what needs to be done?"
             {...inputHeader.bind}
           />
           Add description
           <input
             className="form__input"
-            placeholder="Description"
+            placeholder="description"
             {...inputDescription.bind}
           />
           Add priority
@@ -140,7 +140,7 @@ const AddTodo = ({ onCreate }) => {
           Add responsible executive
           <input
             className="form__input"
-            placeholder="Add responsible executive"
+            placeholder="responsible executive"
             {...inputResponsible.bind}
           />
           Add expiration date
@@ -184,7 +184,7 @@ const AddTodo = ({ onCreate }) => {
                 inputDescription.value().trim() &&
                 inputPriority.value().trim() &&
                 inputResponsible.value().trim() &&
-                inputExpirationDate.value().toString().trim()
+                inputExpirationDate.value()
               ) {
                 setModalActive(false);
                 setCalendarActive(false);

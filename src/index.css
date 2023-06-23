@@ -134,6 +134,12 @@ li {
   width: 100px;
   text-align: center;
 }
+.list__header_box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 .list__header_num {
   width: 65px;
 }

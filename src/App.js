@@ -7,16 +7,17 @@ import TodoFooter from "./Todo/TodoFooter";
 const App = () => {
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
-  const [filteredTodos, setFilteredTodos] = useState([]);
+  const [filteredTodos, setFilteredTodos] = useState([]);  
 
   useEffect(() => {
     getLocalTodos();
+    
   }, []);
 
   useEffect(() => {
-    filterHandler();
-    console.log(todos);
-  }, [todos, status]);
+    filterHandler();    
+  }, [todos, status]); 
+  
 
   const filterHandler = () => {
     switch (status) {
@@ -30,6 +31,17 @@ const App = () => {
         setFilteredTodos(todos);
         break;
     }
+  };
+
+  const filterHandlerByDate = () => {
+    console.log(new Date(todos[0].expirationDate))
+    console.log(todos)    
+    const newTodos = todos.sort((a, b) =>
+      new Date(a.expirationDate) - new Date(b.expirationDate) 
+    );
+    console.log(newTodos);
+    setTodos(newTodos);
+    localStorage.setItem("todos", JSON.stringify(newTodos));
   };
 
   const toggleTodo = (id) => {
@@ -91,7 +103,7 @@ const App = () => {
           .replace(/(\s?\г\.?)/, ""),
         status: "active",
         responsibleExecutive,
-        expirationDate: new Date(expirationDate).toLocaleDateString(),
+        expirationDate: new Date(expirationDate),
         updateDate: new Intl.DateTimeFormat("ru", {
           year: "2-digit",
           month: "numeric",
@@ -118,17 +130,19 @@ const App = () => {
     }
   };
 
+  
+
   return (
-    <Context.Provider value={{ removeTodo }}>
+    <Context.Provider value={{ removeTodo, filterHandlerByDate }}>
       <div className="wrapper">
-        <h1 className="wrapper__title">TODOS</h1>
+        <h1 className="wrapper__title">Task table</h1>
         <AddTodo onCreate={addTodo} />
 
         {todos.length ? (
           <TodoList
-            filteredTodos={filteredTodos}
+            filteredTodos={filteredTodos}            
             todos={todos}
-            onToggle={toggleTodo}
+            onToggle={toggleTodo}            
           />
         ) : (
           <p>no Todos</p>

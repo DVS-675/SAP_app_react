@@ -29,7 +29,7 @@ const TodoItem = ({ todo, index, onChange }) => {
         </div>
         <p className="todo__item_description_item">{todo.title}</p>
         <p className="todo__item_description_item">{todo.priority}</p>
-        <p className="todo__item_description_item">{todo.expirationDate}</p>
+        <p className="todo__item_description_item">{new Date(todo.expirationDate).toLocaleDateString()}</p>
         <p className="todo__item_description_item">{todo.responsibleExecutive}</p>
         <p className="todo__item_description_item">{todo.status}</p>
         <button
@@ -44,7 +44,7 @@ const TodoItem = ({ todo, index, onChange }) => {
         <p><strong>Task Description: </strong>{todo.description}</p>
         <p><strong>Priority: </strong>{todo.priority}</p>
         <p><strong>Date of creation: </strong>{todo.dateOfCreation}</p>
-        <p><strong>Expiration date: </strong>{todo.expirationDate}</p>
+        <p><strong>Expiration date: </strong>{new Date(todo.expirationDate).toLocaleDateString()}</p>
         <p><strong>Update date: </strong>{todo.updateDate}</p>
         <p><strong>Responsible executive: </strong>{todo.responsibleExecutive}</p>
         <p><strong>Status: </strong>{todo.status}</p>
